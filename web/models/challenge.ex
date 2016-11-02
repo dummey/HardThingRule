@@ -5,6 +5,7 @@ defmodule HardThingRule.Challenge do
     field :objective, :string
     field :owner_name, :string
     field :email, :string
+    has_many :check_ins, HardThingRule.CheckIn
 
     timestamps()
   end
