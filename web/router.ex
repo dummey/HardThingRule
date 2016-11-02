@@ -17,7 +17,7 @@ defmodule HardThingRule.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/challenges", ChallengeController
+    resources "/challenges", ChallengeController, only: [:index, :show, :new, :create]
   end
 
   # Other scopes may use custom stacks.

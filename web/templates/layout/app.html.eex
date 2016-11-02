@@ -17,7 +17,7 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <li><%= link "New Challenge", to: challenge_path(@conn, :new) %></li>
-            <li><a href="http://www.phoenixframework.org/docs">All Challenges</a></li>
+            <li><%= link "All Challenge", to: challenge_path(@conn, :index) %></li>
           </ul>
         </nav>
         <span class="logo"></span>
