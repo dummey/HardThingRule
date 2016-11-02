@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello HardThingRule!</title>
+    <title>Hard Thing Rule - Let's challenge ourselves</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -16,7 +16,8 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li><%= link "New Challenge", to: challenge_path(@conn, :new) %></li>
+            <li><a href="http://www.phoenixframework.org/docs">All Challenges</a></li>
           </ul>
         </nav>
         <span class="logo"></span>
