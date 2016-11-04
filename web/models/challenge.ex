@@ -18,4 +18,5 @@ defmodule HardThingRule.Challenge do
     |> cast(params, [:objective, :owner_name, :email])
     |> validate_required([:objective, :owner_name, :email])
   end
+
 end

@@ -18,6 +18,7 @@ defmodule HardThingRule.Router do
 
     get "/", PageController, :index
     resources "/challenges", ChallengeController, only: [:index, :show, :new, :create]
+    resources "/check_ins", CheckInController, only: [:create]
   end
 
   # Other scopes may use custom stacks.

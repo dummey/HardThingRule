@@ -19,5 +19,13 @@
 
 </ul>
 
+<h3>Checkins</h3>
+<%= render HardThingRule.CheckInView, "form.html", changeset: @check_in, action: check_in_path(@conn, :create) %>
+<ul>
+  <%= for check_in <- @check_ins do %>
+    <li><%= check_in.date %>, <%= check_in.score %>, <%= check_in.comment %></li>
+  <% end %>
+</ul>
+
 <%#<%= link "Edit", to: challenge_path(@conn, :edit, @challenge) %>
 <%= link "Back", to: challenge_path(@conn, :index) %>

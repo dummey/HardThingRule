@@ -15,7 +15,7 @@ defmodule HardThingRule.CheckIn do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:score, :comment, :date])
-    |> validate_required([:score, :comment, :date])
+    |> cast(params, [:score, :comment, :date, :challenge_id])
+    |> validate_required([:score, :challenge_id])
   end
 end

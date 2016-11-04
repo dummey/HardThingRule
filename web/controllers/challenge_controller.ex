@@ -2,6 +2,7 @@ defmodule HardThingRule.ChallengeController do
   use HardThingRule.Web, :controller
 
   alias HardThingRule.Challenge
+  alias HardThingRule.CheckIn
 
   def index(conn, _params) do
     challenges = Repo.all(Challenge)
@@ -28,7 +29,13 @@ defmodule HardThingRule.ChallengeController do
 
   def show(conn, %{"id" => id}) do
     challenge = Repo.get!(Challenge, id)
-    render(conn, "show.html", challenge: challenge)
+    check_ins = challenge 
+      |> assoc(:check_ins)
+      |> Repo.all
+
+    check_in = CheckIn.changeset(%CheckIn{}, %{challenge_id: id})
+
+    render(conn, "show.html", challenge: challenge, check_ins: check_ins, check_in: check_in)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -62,4 +69,5 @@ defmodule HardThingRule.ChallengeController do
     |> put_flash(:info, "Challenge deleted successfully.")
     |> redirect(to: challenge_path(conn, :index))
   end
+
 end
